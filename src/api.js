@@ -45,6 +45,15 @@ class JoblyApi {
     return res.company;
   }
 
+
+  /** Get all companies. */
+
+  static async getCompanies() {
+    let res = await this.request(`companies/`);
+    return res.companies;
+  }
+
+  //TODO: search function combine with getCompanies, update docstring
   // obviously, you'll add a lot here ...
 }
 

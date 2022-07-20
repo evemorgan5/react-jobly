@@ -15,8 +15,10 @@ function CompanyDetail({company}) {
 
   return (
     <div className="CompanyDetail">
-      <p>CompanyDetail! {company.name} </p>
-      <JobCardList />
+      <h2>{company.name} </h2>
+      <h4>{company.description}</h4>
+      {company.jobs.map((j, idx) => <p key={idx}>{j.title}</p>)}
+      <JobCardList jobs={company.jobs}/>
     </div>
   );
 }

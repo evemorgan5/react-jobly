@@ -11,13 +11,15 @@ import CompanyCard from "./CompanyCard";
  *  GetCompanyCardList -> CompanyCardList -> CompanyCard
  */
 
-function CompanyCardList() {
+function CompanyCardList({companies}) {
   console.log("CompanyCardList");
 
   return (
     <div className="CompanyCardList">
       <p>CompanyCardList!</p>
-      <CompanyCard />
+      {companies.map((c, idx) =>
+        <CompanyCard key={idx} company={c}/>
+      )}
     </div>
   );
 }

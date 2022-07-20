@@ -9,8 +9,6 @@ import JoblyAPI from "./api";
 /**
  *  GetCompanyDetail
  *
- *  TODO: useParams() to get handle of company, prop?
- *
  *  State:
  *    - company: details from API as obj { company }
  *
@@ -23,7 +21,7 @@ function GetCompanyDetail() {
   const [company, setCompany] = useState(null);
   const [companyFound, setCompanyFound] = useState(false);
 
-  useEffect(function fetchCompanyWhenMounted() {
+  useEffect(function fetchCompanyFromAPI() {
     async function getCompany() {
       const companyData = await JoblyAPI.getCompany(handle);
       setCompany(c => companyData);
@@ -33,12 +31,11 @@ function GetCompanyDetail() {
 
   }, []);
 
-  console.log("company", company);
   return (
     <div className="GetCompanyDetail">
-      { companyFound
-      ? <CompanyDetail company={company}/>
-      : <p>Loading... </p>
+      {companyFound
+        ? <CompanyDetail company={company} />
+        : <p>Loading... </p>
       }
     </div>
   );

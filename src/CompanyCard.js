@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 /**
  *  CompanyCard
@@ -9,12 +10,19 @@ import React from "react";
  *  CompanyCardList -> CompanyCard
  */
 
-function CompanyCard() {
+function CompanyCard({company}) {
   console.log("CompanyCard");
 
   return (
     <div className="CompanyCard">
-      <p>CompanyCard!</p>
+      <Link to={`/companies/${company.handle}`}>
+        {company.name}
+      </Link>
+      <p>{company.description}</p>
+      {company.logoUrl &&
+        <img src={`${company.logoUrl}`} alt={`${company.name}`}></img>
+      }
+      <hr></hr>
     </div>
   );
 }
