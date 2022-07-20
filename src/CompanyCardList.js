@@ -12,7 +12,7 @@ import CompanyCard from "./CompanyCard";
  */
 
 function CompanyCardList({companies}) {
-  console.log("CompanyCardList");
+  // console.log("CompanyCardList");
 
   return (
     <div className="CompanyCardList">

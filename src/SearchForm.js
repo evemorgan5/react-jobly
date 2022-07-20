@@ -13,10 +13,10 @@ import React, { useState } from "react";
  *  { GetCompanyCardList, GetJobCardList } -> SearchForm
  */
 
-const DEFAULT_DATA = {name: ""};
+// const DEFAULT_DATA = { name: "" };
 
-function SearchForm({initialFormData=DEFAULT_DATA, handleSave}) {
-  console.log("SearchForm");
+function SearchForm({ initialFormData, handleSave }) {
+  // console.log("SearchForm");
   const [formData, setFormData] = useState(initialFormData);
 
   /** Update form input. */

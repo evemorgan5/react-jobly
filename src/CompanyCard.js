@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
  */
 
 function CompanyCard({company}) {
-  console.log("CompanyCard");
+  // console.log("CompanyCard");
 
   return (
     <div className="CompanyCard">

@@ -11,7 +11,7 @@ import JobCardList from "./JobCardList";
  */
 
 function CompanyDetail({company}) {
-  console.log("CompanyDetail");
+  // console.log("CompanyDetail");
 
   return (
     <div className="CompanyDetail">

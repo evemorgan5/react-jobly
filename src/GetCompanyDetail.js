@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CompanyDetail from "./CompanyDetail";
-import axios from "axios";
 import JoblyAPI from "./api";
-
-
 
 /**
  *  GetCompanyDetail
@@ -16,7 +13,7 @@ import JoblyAPI from "./api";
  */
 
 function GetCompanyDetail() {
-  console.log("GetCompanyDetail");
+  // console.log("GetCompanyDetail");
   const { handle } = useParams();
   const [company, setCompany] = useState(null);
   const [companyFound, setCompanyFound] = useState(false);
