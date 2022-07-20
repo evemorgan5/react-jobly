@@ -17,7 +17,7 @@ function CompanyDetail({company}) {
     <div className="CompanyDetail">
       <h2>{company.name} </h2>
       <h4>{company.description}</h4>
-      {company.jobs.map((j, idx) => <p key={idx}>{j.title}</p>)}
+      <hr></hr>
       <JobCardList jobs={company.jobs}/>
     </div>
   );

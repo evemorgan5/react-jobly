@@ -18,7 +18,6 @@ import JoblyAPI from "./api";
 function GetCompanyCardList() {
   // console.log("GetCompanyCardList");
   const [companies, setCompanies] = useState(null);
-  const [companiesFound, setCompaniesFound] = useState(false);
 
   /** Get all companies on mount */
   useEffect(function fetchCompaniesFromAPI() {
@@ -29,7 +28,6 @@ function GetCompanyCardList() {
   async function getCompanies() {
     const companiesData = await JoblyAPI.getCompanies();
     setCompanies(c => companiesData);
-    setCompaniesFound(true);
   }
 
   /** Get all matching companies from API based on search filters */
@@ -38,8 +36,9 @@ function GetCompanyCardList() {
 
     if (filteredCompaniesData) {
       setCompanies(c => filteredCompaniesData);
-      setCompaniesFound(true);
     }
+
+
   }
 
   return (
@@ -48,9 +47,11 @@ function GetCompanyCardList() {
         handleSave={getFilteredCompanies}
         initialFormData={{ name: "" }}
       />
-      {companiesFound
+      {companies
         ? <CompanyCardList companies={companies} />
         : <p>Loading... </p>
+      }
+      {companies && companies.length === 0 && "Sorry, no results were found!"
       }
     </div>
   );

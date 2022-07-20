@@ -14,9 +14,8 @@ import JoblyAPI from "./api";
  */
 
 function GetJobCardList() {
-  console.log("GetJobCardList");
+  //console.log("GetJobCardList");
   const [jobs, setJobs] = useState(null);
-  const [jobsFound, setJobsFound] = useState(false);
 
   /** Get all jobs on mount */
   useEffect(function fetchJobsFromAPI() {
@@ -25,11 +24,8 @@ function GetJobCardList() {
 
   /** Get all jobs from API */
   async function getJobs() {
-    console.log("inside f ")
     const jobsData = await JoblyAPI.getJobs();
     setJobs(c => jobsData);
-    setJobsFound(true);
-    console.log("jobs", jobs)
   }
 
   /** Get all matching jobs from API based on search filters */
@@ -38,7 +34,6 @@ function GetJobCardList() {
 
     if (filteredJobsData) {
       setJobs(c => filteredJobsData);
-      setJobsFound(true);
     }
   }
   return (
@@ -47,9 +42,11 @@ function GetJobCardList() {
         handleSave={getFilteredJobs}
         initialFormData={{ title: "" }}
       />
-      {jobsFound
+      {jobs
         ? <JobCardList jobs={jobs} />
         : <p>Loading... </p>
+      }
+      {jobs && jobs.length === 0 && "Sorry, no results were found!"
       }
     </div>
   );

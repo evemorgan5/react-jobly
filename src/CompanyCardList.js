@@ -16,7 +16,6 @@ function CompanyCardList({companies}) {
 
   return (
     <div className="CompanyCardList">
-      <p>CompanyCardList!</p>
       {companies.map((c, idx) =>
         <CompanyCard key={idx} company={c}/>
       )}
