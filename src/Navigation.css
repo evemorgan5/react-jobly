@@ -1,0 +1,26 @@
+.Navigation {
+    background-color: tomato;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .Navigation a {
+    padding: 0.5em 0;
+    width: 10em;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+  }
+
+  .Navigation a:hover {
+    background-color: black;
+    color: white !important;
+  }
+
+  .Navigation a.active {
+    font-weight: bold;
+    color: black;
+  }

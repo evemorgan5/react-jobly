@@ -9,8 +9,8 @@ import React from "react";
  *  JobCardList -> JobCard
  */
 
-function JobCard({job}) {
-  console.log("JobCard");
+function JobCard({ job }) {
+  // console.log("JobCard");
 
   return (
     <div className="JobCard">

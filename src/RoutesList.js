@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import Homepage from "./Homepage";
@@ -7,7 +6,11 @@ import GetCompanyCardList from "./GetCompanyCardList";
 import GetCompanyDetail from "./GetCompanyDetail";
 import GetJobCardList from "./GetJobCardList";
 
-/** TODO: */
+/**
+ *  RoutesList
+ *
+ *  App -> RoutesList -> Routes
+ */
 
 function RoutesList() {
   return (

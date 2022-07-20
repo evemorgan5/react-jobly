@@ -15,6 +15,7 @@ import JoblyAPI from "./api";
 
 function GetJobCardList() {
   //console.log("GetJobCardList");
+
   const [jobs, setJobs] = useState(null);
 
   /** Get all jobs on mount */
@@ -42,11 +43,14 @@ function GetJobCardList() {
         handleSave={getFilteredJobs}
         initialFormData={{ title: "" }}
       />
+
       {jobs
         ? <JobCardList jobs={jobs} />
         : <p>Loading... </p>
       }
-      {jobs && jobs.length === 0 && "Sorry, no results were found!"
+
+      {jobs && jobs.length === 0 &&
+        <p>Sorry, no results were found!</p>
       }
     </div>
   );

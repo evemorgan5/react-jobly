@@ -7,11 +7,12 @@ import React from "react";
  */
 
 function Homepage() {
-	console.log("Homepage");
+	// console.log("Homepage");
 
   return (
     <div className="Homepage">
-      <p>Homepage!</p>
+      <h1>Jobly</h1>
+      <h4>All the jobs in one, convenient place.</h4>
     </div>
   );
 }

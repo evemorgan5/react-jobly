@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
  *  CompanyCardList -> CompanyCard
  */
 
-function CompanyCard({company}) {
+function CompanyCard({ company }) {
   // console.log("CompanyCard");
 
   return (

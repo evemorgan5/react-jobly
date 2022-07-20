@@ -1,21 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
-// import "./NavBar.css";
+import { NavLink } from "react-router-dom";
+import "./Navigation.css";
 
-/** TODO: */
+/**
+ *  Navigation
+ *
+ *  App -> Navigation -> RoutesList
+ */
 
 function Navigation() {
   return (
     <nav className="Navigation">
-      <Link to="/">
+      <NavLink to="/">
         Jobly
-      </Link>
-      <Link to="/companies">
-        Companies
-      </Link>
-      <Link to="/jobs">
-        Jobs
-      </Link>
+      </NavLink>
+      <span>
+        <NavLink to="/companies">
+          Companies
+        </NavLink>
+        <NavLink to="/jobs">
+          Jobs
+        </NavLink>
+      </span>
     </nav>
   );
 }

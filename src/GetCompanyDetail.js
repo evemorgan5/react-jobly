@@ -14,15 +14,14 @@ import JoblyAPI from "./api";
 
 function GetCompanyDetail() {
   // console.log("GetCompanyDetail");
+
   const { handle } = useParams();
   const [company, setCompany] = useState(null);
-  const [companyFound, setCompanyFound] = useState(false);
 
   useEffect(function fetchCompanyFromAPI() {
     async function getCompany() {
       const companyData = await JoblyAPI.getCompany(handle);
       setCompany(c => companyData);
-      setCompanyFound(true);
     }
     getCompany();
 
@@ -30,7 +29,7 @@ function GetCompanyDetail() {
 
   return (
     <div className="GetCompanyDetail">
-      {companyFound
+      {company
         ? <CompanyDetail company={company} />
         : <p>Loading... </p>
       }

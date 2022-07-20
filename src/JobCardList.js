@@ -10,15 +10,15 @@ import JobCard from "./JobCard";
  *  { CompanyDetail, GetJobCardList } -> JobCardList -> JobCard
  */
 
-function JobCardList({jobs}) {
-	console.log("JobCardList");
+function JobCardList({ jobs }) {
+  // console.log("JobCardList");
 
   return (
-  <div className="JobCardList">
-    {jobs.map((j, idx) =>
-    <JobCard key={idx} job={j}/>
-    )}
-  </div>
+    <div className="JobCardList">
+      {jobs.map((j, idx) =>
+        <JobCard key={idx} job={j} />
+      )}
+    </div>
   );
 }
 

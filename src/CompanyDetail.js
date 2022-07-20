@@ -10,7 +10,7 @@ import JobCardList from "./JobCardList";
  *  GetCompanyDetail -> CompanyDetail -> JobCardList
  */
 
-function CompanyDetail({company}) {
+function CompanyDetail({ company }) {
   // console.log("CompanyDetail");
 
   return (
@@ -18,7 +18,7 @@ function CompanyDetail({company}) {
       <h2>{company.name} </h2>
       <h4>{company.description}</h4>
       <hr></hr>
-      <JobCardList jobs={company.jobs}/>
+      <JobCardList jobs={company.jobs} />
     </div>
   );
 }

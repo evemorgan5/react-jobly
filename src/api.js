@@ -45,7 +45,6 @@ class JoblyApi {
     return res.company;
   }
 
-
   /** Get all companies. */
 
   static async getCompanies() {
@@ -53,8 +52,7 @@ class JoblyApi {
     return res.companies;
   }
 
-
-  /** Get filtered companies by company name. */
+  /** Get companies filtered by company name. */
 
   static async getFilteredCompanies(formData) {
     const name = formData.name;
@@ -73,8 +71,7 @@ class JoblyApi {
     return res.jobs;
   }
 
-
-  /** Get filtered jobs by company name. */
+  /** Get jobs filtered by job title. */
 
   static async getFilteredJobs(formData) {
     const title = formData.title;

@@ -1,10 +1,13 @@
-// import './App.css';
+import './App.css';
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Navigation from "./Navigation";
 import RoutesList from "./RoutesList";
 
-/** App TODO: */
+/** Site application.
+ *
+ * App -> { Navigation, RoutesList }
+ **/
 
 function App() {
   return (
@@ -14,7 +17,6 @@ function App() {
           <Navigation />
           <RoutesList />
         </BrowserRouter>
-
       </header>
     </div>
   );

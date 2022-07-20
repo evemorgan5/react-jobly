@@ -37,8 +37,6 @@ function GetCompanyCardList() {
     if (filteredCompaniesData) {
       setCompanies(c => filteredCompaniesData);
     }
-
-
   }
 
   return (
@@ -47,11 +45,14 @@ function GetCompanyCardList() {
         handleSave={getFilteredCompanies}
         initialFormData={{ name: "" }}
       />
+
       {companies
         ? <CompanyCardList companies={companies} />
         : <p>Loading... </p>
       }
-      {companies && companies.length === 0 && "Sorry, no results were found!"
+
+      {companies && companies.length === 0 &&
+        <p>Sorry, no results were found!</p>
       }
     </div>
   );
