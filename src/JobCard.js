@@ -9,12 +9,15 @@ import React from "react";
  *  JobCardList -> JobCard
  */
 
-function JobCard() {
+function JobCard({job}) {
   console.log("JobCard");
 
   return (
     <div className="JobCard">
-      <p>JobCard!</p>
+      <h2>{job.title}</h2>
+      <h3>{job.companyName}</h3>
+      <h3>{job.salary}</h3>
+      <h3>{job.equity}</h3>
     </div>
   );
 }

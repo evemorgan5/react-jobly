@@ -25,9 +25,11 @@ function GetJobCardList() {
 
   /** Get all jobs from API */
   async function getJobs() {
+    console.log("inside f ")
     const jobsData = await JoblyAPI.getJobs();
     setJobs(c => jobsData);
     setJobsFound(true);
+    console.log("jobs", jobs)
   }
 
   /** Get all matching jobs from API based on search filters */
