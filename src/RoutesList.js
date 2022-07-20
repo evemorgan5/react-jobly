@@ -3,19 +3,19 @@ import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import Homepage from "./Homepage";
-import GetCompanyList from "./GetCompanyList";
+import GetCompanyCardList from "./GetCompanyCardList";
 import GetCompanyDetail from "./GetCompanyDetail";
-import GetJobList from "./GetJobList";
+import GetJobCardList from "./GetJobCardList";
 
-
+/** TODO: */
 
 function RoutesList() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="/companies" element={<GetCompanyList />} />
+      <Route path="/companies" element={<GetCompanyCardList />} />
       <Route path="/companies/:handle" element={<GetCompanyDetail />} />
-      <Route path="/jobs" element={<GetJobList />} />
+      <Route path="/jobs" element={<GetJobCardList />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
