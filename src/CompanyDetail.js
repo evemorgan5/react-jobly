@@ -1,4 +1,5 @@
 import React from "react";
+import JobCardList from "./JobCardList";
 
 /**
  *  CompanyDetail
@@ -9,12 +10,13 @@ import React from "react";
  *  GetCompanyDetail -> CompanyDetail -> JobCardList
  */
 
-function CompanyDetail() {
+function CompanyDetail({handle}) {
   console.log("CompanyDetail");
 
   return (
     <div className="CompanyDetail">
-      <p>CompanyDetail!</p>
+      <p>CompanyDetail! {handle} </p>
+      <JobCardList />
     </div>
   );
 }

@@ -1,4 +1,7 @@
 import React from "react";
+import SearchForm from "./SearchForm";
+import CompanyCardList from "./CompanyCardList";
+
 
 /**
  *  GetCompanyCardList
@@ -14,7 +17,9 @@ function GetCompanyCardList() {
 
   return (
     <div className="GetCompanyCardList">
-      <p>GetCompanyCardList!</p>
+      <p>GetCompanyCardList! (logic here)</p>
+      <SearchForm />
+      <CompanyCardList />
     </div>
   );
 }

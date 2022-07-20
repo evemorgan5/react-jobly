@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import CompanyDetail from "./CompanyDetail";
 
 /**
  *  GetCompanyDetail
@@ -19,7 +20,8 @@ function GetCompanyDetail() {
 
   return (
     <div className="GetCompanyDetail">
-      <p>GetCompanyDetail!</p>
+      <p>GetCompanyDetail! (logic here)</p>
+      <CompanyDetail handle={handle}/>
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import CompanyCard from "./CompanyCard";
+
 
 /**
  *  CompanyCardList
@@ -15,6 +17,7 @@ function CompanyCardList() {
   return (
     <div className="CompanyCardList">
       <p>CompanyCardList!</p>
+      <CompanyCard />
     </div>
   );
 }

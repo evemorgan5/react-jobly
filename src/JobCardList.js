@@ -1,4 +1,5 @@
 import React from "react";
+import JobCard from "./JobCard";
 
 /**
  *  JobCardList
@@ -15,6 +16,7 @@ function JobCardList() {
   return (
     <div className="JobCardList">
       <p>JobCardList!</p>
+      <JobCard />
     </div>
   );
 }
