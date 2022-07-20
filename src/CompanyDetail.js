@@ -10,12 +10,12 @@ import JobCardList from "./JobCardList";
  *  GetCompanyDetail -> CompanyDetail -> JobCardList
  */
 
-function CompanyDetail({handle}) {
+function CompanyDetail({company}) {
   console.log("CompanyDetail");
 
   return (
     <div className="CompanyDetail">
-      <p>CompanyDetail! {handle} </p>
+      <p>CompanyDetail! {company.name} </p>
       <JobCardList />
     </div>
   );

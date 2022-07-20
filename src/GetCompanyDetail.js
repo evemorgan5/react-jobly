@@ -21,20 +21,25 @@ function GetCompanyDetail() {
   console.log("GetCompanyDetail");
   const { handle } = useParams();
   const [company, setCompany] = useState(null);
+  const [companyFound, setCompanyFound] = useState(false);
 
   useEffect(function fetchCompanyWhenMounted() {
     async function getCompany() {
       const companyData = await JoblyAPI.getCompany(handle);
       setCompany(c => companyData);
+      setCompanyFound(true);
     }
     getCompany();
+
   }, []);
 
   console.log("company", company);
   return (
     <div className="GetCompanyDetail">
-      <p>GetCompanyDetail! (logic here)</p>
-      <CompanyDetail company={company}/>
+      { companyFound
+      ? <CompanyDetail company={company}/>
+      : <p>Loading... </p>
+      }
     </div>
   );
 }
