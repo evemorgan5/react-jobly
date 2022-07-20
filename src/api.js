@@ -53,11 +53,17 @@ class JoblyApi {
     return res.companies;
   }
 
-  //TODO: search function combine with getCompanies, update docstring
-  // obviously, you'll add a lot here ...
+
+  /** Get filtered companies by company name. */
+
+  static async getFilteredCompanies(formData) {
+    const name = formData.name;
+    let res = await this.request(`companies/?name=${name}`);
+    return res.companies;
+  }
+
 }
 
-// might need to add in BASE URL
 export default JoblyApi;
 
 

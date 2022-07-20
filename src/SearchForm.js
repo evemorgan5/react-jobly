@@ -5,7 +5,7 @@ import React, { useState } from "react";
  *
  *  Props:
  *  - initialFormData
- *  - handleSubmit: function to call in parent.
+ *  - handleSave: function to call in parent.
  *
  *  State:
  *    - formData
@@ -13,19 +13,43 @@ import React, { useState } from "react";
  *  { GetCompanyCardList, GetJobCardList } -> SearchForm
  */
 
-function SearchForm() {
+const DEFAULT_DATA = {name: ""};
+
+function SearchForm({initialFormData=DEFAULT_DATA, handleSave}) {
   console.log("SearchForm");
+  const [formData, setFormData] = useState(initialFormData);
 
-  //TODO: when we search, we make an API get to "/companies/",
-  //  pass in query param ?name=whatever
-  // whatever they type in search bar, gets passed
-  //    into our joblyAPI static method, as the query param "name"
+  /** Update form input. */
+  function handleChange(evt) {
+    const input = evt.target;
+    setFormData(formData => ({
+      ...formData,
+      [input.name]: input.value,
+    }));
+  }
 
+  /** Call parent function and clear form. */
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    handleSave(formData);
+    setFormData(initialFormData);
+  }
 
   return (
-    <div className="SearchForm">
-      <p>SearchForm!</p>
-    </div>
+    <form className="SearchForm" onSubmit={handleSubmit}>
+      {Object.keys(formData).map((p, idx) =>
+        <input
+          id={idx}
+          key={idx}
+          name={p}
+          value={formData[p]}
+          placeholder="Enter search term..."
+          onChange={handleChange}
+        />)}
+      <button>
+        Submit
+      </button>
+    </form>
   );
 }
 

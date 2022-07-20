@@ -18,20 +18,26 @@ function GetCompanyCardList() {
   const [companies, setCompanies] = useState(null);
   const [companiesFound, setCompaniesFound] = useState(false);
 
-  useEffect(function fetchCompaniesFromAPI() {
-    async function getCompanies() {
-      const companiesData = await JoblyAPI.getCompanies();
-      setCompanies(c => companiesData);
-      setCompaniesFound(true);
-    }
-    getCompanies();
+  async function getCompanies() {
+    const companiesData = await JoblyAPI.getCompanies();
+    setCompanies(c => companiesData);
+    setCompaniesFound(true);
+  }
 
+  useEffect(function fetchCompaniesFromAPI() {
+    getCompanies();
   }, []);
+
+  async function getFilteredCompanies(searchData) {
+    const filteredCompaniesData = await JoblyAPI.getFilteredCompanies(searchData);
+    setCompanies(c => filteredCompaniesData);
+    setCompaniesFound(true);
+  }
 
   return (
     <div className="GetCompanyCardList">
       <p>GetCompanyCardList! (logic here)</p>
-      <SearchForm />
+      <SearchForm handleSave={getFilteredCompanies}/>
       {/* {companies.map((c, idx) => <p key={idx}>{c.name}</p>)} */}
       {companiesFound
         ? <CompanyCardList companies={companies}/>
