@@ -10,6 +10,11 @@ import RoutesList from "./RoutesList";
  **/
 
 function App() {
+
+  //TODO: loginF
+  //TODO: signupF
+  //TODO: editF
+  //TODO:redirect to /companies after login or signup
   return (
     <div className="App">
       <header className="App-header">
