@@ -7,6 +7,9 @@ import JoblyAPI from "./api";
 /**
  *  GetJobCardList
  *
+ *  Prop:
+ *  - None
+ *
  *  State:
  *    - jobs: array of jobs from API [ {job}, ... ]
  *

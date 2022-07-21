@@ -8,6 +8,9 @@ import CompanyCard from "./CompanyCard";
  *  Props:
  *  - companies: array of companies from API [ {company}, ... ]
  *
+ *  State:
+ *  - None
+ *
  *  GetCompanyCardList -> CompanyCardList -> CompanyCard
  */
 
@@ -16,8 +19,8 @@ function CompanyCardList({ companies }) {
 
   return (
     <div className="CompanyCardList">
-      {companies.map((c, idx) =>
-        <CompanyCard key={idx} company={c} />
+      {companies.map(c =>
+        <CompanyCard key={c.handle} company={c} />
       )}
     </div>
   );

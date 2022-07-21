@@ -9,6 +9,8 @@ import JoblyAPI from "./api";
 /**
  *  GetCompanyCardList
  *
+ * //TODO: props
+ *
  *  State:
  *    - companies: array of companies from API [ {company}, ... ]
  *

@@ -6,6 +6,9 @@ import React from "react";
  *  Props:
  *    - job: details from API as obj { job }
  *
+ *  State:
+ *  - None
+ *
  *  JobCardList -> JobCard
  */
 
@@ -16,8 +19,8 @@ function JobCard({ job }) {
     <div className="JobCard">
       <h2>{job.title}</h2>
       <h3>{job.companyName}</h3>
-      <h3>{job.salary}</h3>
-      <h3>{job.equity}</h3>
+      <h3>Salary: {job.salary}</h3>
+      <h3>Equity: {job.equity}</h3>
     </div>
   );
 }

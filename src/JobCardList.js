@@ -5,7 +5,10 @@ import JobCard from "./JobCard";
  *  JobCardList
  *
  *  Prop:
- *    - jobs: array of jobs from API [ {job}, ... ]
+ *  - jobs: array of jobs from API [ {job}, ... ]
+ *
+ *  State:
+ *  - None
  *
  *  { CompanyDetail, GetJobCardList } -> JobCardList -> JobCard
  */
@@ -15,8 +18,8 @@ function JobCardList({ jobs }) {
 
   return (
     <div className="JobCardList">
-      {jobs.map((j, idx) =>
-        <JobCard key={idx} job={j} />
+      {jobs.map(j =>
+        <JobCard key={j.id} job={j} />
       )}
     </div>
   );

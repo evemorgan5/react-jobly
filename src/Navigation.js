@@ -5,7 +5,7 @@ import "./Navigation.css";
 /**
  *  Navigation
  *
- *  App -> Navigation -> RoutesList
+ *  App -> Navigation
  */
 
 function Navigation() {

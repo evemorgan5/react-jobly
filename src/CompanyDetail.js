@@ -6,6 +6,8 @@ import JobCardList from "./JobCardList";
  *
  *  Prop:
  *    - company: details from API as obj { company }
+ *  State:
+ *  - None
  *
  *  GetCompanyDetail -> CompanyDetail -> JobCardList
  */

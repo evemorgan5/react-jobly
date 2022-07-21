@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
  *  Props:
  *    - company: details from API as obj { company }
  *
+ *  State:
+ *  - None
+ *
  *  CompanyCardList -> CompanyCard
  */
 
