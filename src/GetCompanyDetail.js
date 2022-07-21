@@ -6,8 +6,8 @@ import JoblyAPI from "./api";
 /**
  *  GetCompanyDetail
  *
- *  Prop:
- *  - None
+ *  Props:
+ *    - None
  *
  *  State:
  *    - company: details from API as obj { company }

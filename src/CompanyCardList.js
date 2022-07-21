@@ -6,10 +6,10 @@ import CompanyCard from "./CompanyCard";
  *  CompanyCardList
  *
  *  Props:
- *  - companies: array of companies from API [ {company}, ... ]
+ *    - companies: array of companies from API [ {company}, ... ]
  *
  *  State:
- *  - None
+ *    - None
  *
  *  GetCompanyCardList -> CompanyCardList -> CompanyCard
  */

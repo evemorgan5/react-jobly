@@ -7,7 +7,7 @@ import React from "react";
  *    - job: details from API as obj { job }
  *
  *  State:
- *  - None
+ *    - None
  *
  *  JobCardList -> JobCard
  */

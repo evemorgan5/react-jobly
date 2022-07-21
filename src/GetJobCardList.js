@@ -7,8 +7,8 @@ import JoblyAPI from "./api";
 /**
  *  GetJobCardList
  *
- *  Prop:
- *  - None
+ *  Props:
+ *    - None
  *
  *  State:
  *    - jobs: array of jobs from API [ {job}, ... ]
@@ -20,30 +20,29 @@ function GetJobCardList() {
   //console.log("GetJobCardList");
 
   const [jobs, setJobs] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(null);
 
-  /** Get all jobs on mount */
+  /** Get all jobs on mount and searchTerm update */
   useEffect(function fetchJobsFromAPI() {
-    getJobs();
-  }, []);
+    getJobs(searchTerm);
+  }, [searchTerm]);
 
-  /** Get all jobs from API */
-  async function getJobs() {
-    const jobsData = await JoblyAPI.getJobs();
+  /** Get all jobs from API with optional search term */
+  async function getJobs(term) {
+    const jobsData = await JoblyAPI.getJobsFromAPI(term);
     setJobs(c => jobsData);
   }
 
-  /** Get all matching jobs from API based on search filters */
-  async function getFilteredJobs(searchData) {
-    const filteredJobsData = await JoblyAPI.getFilteredJobs(searchData);
-
-    if (filteredJobsData) {
-      setJobs(c => filteredJobsData);
-    }
+  /** Get search term from form and set in state */
+  function updateSearchTerm(formData) {
+    const term = formData.title;
+    setSearchTerm(t => term);
   }
+
   return (
     <div className="GetJobCardList">
       <SearchForm
-        handleSave={getFilteredJobs}
+        handleSave={updateSearchTerm}
         initialFormData={{ title: "" }}
       />
 

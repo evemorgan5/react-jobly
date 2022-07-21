@@ -4,11 +4,11 @@ import JobCard from "./JobCard";
 /**
  *  JobCardList
  *
- *  Prop:
- *  - jobs: array of jobs from API [ {job}, ... ]
+ *  Props:
+ *    - jobs: array of jobs from API [ {job}, ... ]
  *
  *  State:
- *  - None
+ *    - None
  *
  *  { CompanyDetail, GetJobCardList } -> JobCardList -> JobCard
  */

@@ -45,41 +45,24 @@ class JoblyApi {
     return res.company;
   }
 
-  /** Get all companies. */
+  /** Get all companies with optional search term. */
 
-  static async getCompanies() {
-    let res = await this.request(`companies/`);
+  static async getCompaniesFromAPI(term) {
+
+    let res = await this.request(
+      `companies/`,
+      {name: term}
+    );
     return res.companies;
   }
 
-  /** Get companies filtered by company name. */
+  /** Get all jobs with optional search term. */
 
-  static async getFilteredCompanies(formData) {
-    const name = formData.name;
-    if (!name) {
-      return null;
-    }
-
-    let res = await this.request(`companies/?name=${name}`);
-    return res.companies;
-  }
-
-  /** Get all jobs. */
-
-  static async getJobs() {
-    let res = await this.request(`jobs/`);
-    return res.jobs;
-  }
-
-  /** Get jobs filtered by job title. */
-
-  static async getFilteredJobs(formData) {
-    const title = formData.title;
-    if (!title) {
-      return null;
-    }
-
-    let res = await this.request(`jobs/?title=${title}`);
+  static async getJobsFromAPI(term) {
+    let res = await this.request(
+      `jobs/`,
+      {title: term}
+    );
     return res.jobs;
   }
 }

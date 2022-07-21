@@ -4,10 +4,11 @@ import JobCardList from "./JobCardList";
 /**
  *  CompanyDetail
  *
- *  Prop:
+ *  Props:
  *    - company: details from API as obj { company }
+ *
  *  State:
- *  - None
+ *    - None
  *
  *  GetCompanyDetail -> CompanyDetail -> JobCardList
  */
