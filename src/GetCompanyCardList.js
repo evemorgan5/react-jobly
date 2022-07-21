@@ -18,6 +18,11 @@ import JoblyAPI from "./api";
 function GetCompanyCardList() {
   // console.log("GetCompanyCardList");
 
+  console.log("joblyapi", JoblyAPI.token);
+  JoblyAPI.token = "hamburger"
+  console.log("joblyapi", JoblyAPI.token);
+
+
   const [companies, setCompanies] = useState(null);
   const [searchTerm, setSearchTerm] = useState(null);
 

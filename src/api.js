@@ -14,9 +14,11 @@ class JoblyApi {
   // Remember, the backend needs to be authorized with a token
   // We're providing a token you can use to interact with the backend API
   // DON'T MODIFY THIS TOKEN
-  static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+  // static token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+  //   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+  //   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+
+  static token = "";
 
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
@@ -51,7 +53,7 @@ class JoblyApi {
 
     let res = await this.request(
       `companies/`,
-      {name: term}
+      { name: term }
     );
     return res.companies;
   }
@@ -61,10 +63,35 @@ class JoblyApi {
   static async getJobsFromAPI(term) {
     let res = await this.request(
       `jobs/`,
-      {title: term}
+      { title: term }
     );
     return res.jobs;
   }
+
+  /** On login - get token by making a POST request to /auth/token:
+   * { username, password } => token
+   */
+  static async onLoginGetTokenFromAPI(userLoginDetails) {
+    let res = await this.request(
+      '/auth/token',
+      userLoginDetails,
+      "post"
+    );
+    return res.token;
+  }
+
+  /** On registering - get token by making a POST request to /auth/register:
+  * { username, password, firstName, lastName, email } => token
+  */
+  static async onRegGetTokenFromAPI(userRegisterDetails) {
+    let res = await this.request(
+      '/auth/register',
+      userRegisterDetails,
+      "post"
+    );
+    return res.token;
+  }
+
 }
 
 export default JoblyApi;
