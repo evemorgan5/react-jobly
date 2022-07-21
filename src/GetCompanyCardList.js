@@ -18,10 +18,8 @@ import JoblyAPI from "./api";
 function GetCompanyCardList() {
   // console.log("GetCompanyCardList");
 
-  console.log("joblyapi", JoblyAPI.token);
-  JoblyAPI.token = "hamburger"
-  console.log("joblyapi", JoblyAPI.token);
-
+  //TODO: DELETE LATER
+  // const { token } = useContext(tokenContext);
 
   const [companies, setCompanies] = useState(null);
   const [searchTerm, setSearchTerm] = useState(null);
@@ -33,6 +31,8 @@ function GetCompanyCardList() {
 
   /** Get all companies from API with optional search term */
   async function getCompanies(term) {
+    // FIXME:JoblyAPI.token = token;
+    // console.log("GET COMPANY JOBLY TOKEN", token);
     const companiesData = await JoblyAPI.getCompaniesFromAPI(term);
     setCompanies(c => companiesData);
   }

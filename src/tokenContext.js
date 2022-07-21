@@ -2,6 +2,6 @@ import { createContext } from "react";
 
 
 /** Create user context for App */
-const userContext = createContext();
+const tokenContext = createContext();
 
-export default userContext;
+export default tokenContext;

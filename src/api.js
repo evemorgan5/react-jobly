@@ -73,7 +73,7 @@ class JoblyApi {
    */
   static async onLoginGetTokenFromAPI(userLoginDetails) {
     let res = await this.request(
-      '/auth/token',
+      'auth/token',
       userLoginDetails,
       "post"
     );
@@ -85,7 +85,7 @@ class JoblyApi {
   */
   static async onRegGetTokenFromAPI(userRegisterDetails) {
     let res = await this.request(
-      '/auth/register',
+      'auth/register',
       userRegisterDetails,
       "post"
     );
