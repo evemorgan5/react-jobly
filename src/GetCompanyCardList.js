@@ -21,31 +21,16 @@ function GetCompanyCardList() {
   const [companies, setCompanies] = useState(null);
   const [searchTerm, setSearchTerm] = useState(null);
 
-  /** Get all companies on mount */
+  /** Get all companies on mount and searchTerm update */
   useEffect(function fetchCompaniesFromAPI() {
     getCompanies(searchTerm);
   }, [searchTerm]);
 
-  /** Get all companies from API */
+  /** Get all companies from API with optional search term */
   async function getCompanies(term) {
     const companiesData = await JoblyAPI.getCompaniesFromAPI(term);
     setCompanies(c => companiesData);
   }
-
-  // /** Get all companies from API */
-  // async function getCompanies() {
-  //   const companiesData = await JoblyAPI.getCompanies();
-  //   setCompanies(c => companiesData);
-  // }
-
-  /** Get all matching companies from API based on search filters */
-  // async function getFilteredCompanies(searchData) {
-  //   const filteredCompaniesData = await JoblyAPI.getFilteredCompanies(searchData);
-
-  //   if (filteredCompaniesData) {
-  //     setCompanies(c => filteredCompaniesData);
-  //   }
-  // }
 
   /** Get search term from form and set in state */
   function updateSearchTerm(formData) {
