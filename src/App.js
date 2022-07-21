@@ -16,18 +16,20 @@ function App() {
   const [token, setToken] = useState("");
   const [user, setUser] = useState({});
 
-  // TODO: useEffect
   useEffect(function fetchUserInfoFromAPI() {
     getUser(user.username, token);
-  }, [user, token]);
+  }, [user.username, token]);
 
   /** Get current user details */
   async function getUser(username, token) {
-    const userData = await JoblyApi.getUserFromAPI(username, token);
+    JoblyApi.token = token;
+    const userData = await JoblyApi.getUserFromAPI(username);
     setUser(u => userData);
   }
 
-  //TODO: loginF
+  console.log("user",user);
+
+  /** Login user and updates token and username */
   async function login(formData) {
     const userDetails = {
       username: formData["Username"],
@@ -44,7 +46,7 @@ function App() {
     });
   }
 
-  //TODO: signupF
+  /** Signs up user and updates token and username */
   async function signup(formData) {
     console.log(formData);
     const userDetails = {
@@ -63,8 +65,19 @@ function App() {
     });
     // JoblyApi.token = newToken;
   }
+
+  /** Log out user and updates token and user*/
+  async function logout() {
+    setToken(t => "");
+    setUser(u => {});
+  }
+
+
   console.log("APP TOKEN", token);
   //TODO: editF
+
+
+
 
   //TODO:redirect to /companies after login or signup
 

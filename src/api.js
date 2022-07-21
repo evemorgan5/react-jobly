@@ -30,7 +30,10 @@ class JoblyApi {
       : {};
 
     try {
-      return (await axios({ url, method, data, params, headers })).data;
+      const res = (await axios({ url, method, data, params, headers }));
+      console.log(res);
+      return res.data;
+
     } catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.error.message;
@@ -90,6 +93,15 @@ class JoblyApi {
       "post"
     );
     return res.token;
+  }
+
+
+  /** Get user from API using username */
+  static async getUserFromAPI(username) {
+    let res = await this.request(
+      `users/${username}`
+    );
+    return res.user;
   }
 
 }
