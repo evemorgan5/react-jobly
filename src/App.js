@@ -27,7 +27,8 @@ function App() {
 
   /** Gets user from API when token changes */
   useEffect(function fetchUserInfoFromAPI() {
-    //TODO: check for token in local storage
+
+    setOrRetreiveTokenFromLS(token);
 
     if (token) {
       const { username } = jwt_decode(token);
@@ -35,6 +36,22 @@ function App() {
       getUser(username, token);
     }
   }, [token]);
+
+
+  /** Add token in localStorage, or retreive if it already exists in LS */
+  function setOrRetreiveTokenFromLS(token) {
+    const joblyToken = localStorage.getItem('jobly-token');
+    console.log("token", token);
+    console.log("jobly before if check", joblyToken)
+
+    if (!joblyToken) {
+      localStorage.setItem('jobly-token', token);
+      console.log("jobly in if check", joblyToken);
+    }
+    else {
+      setToken(t => joblyToken);
+    }
+  }
 
   /** Get current user details */
   async function getUser(username, token) {
@@ -46,6 +63,7 @@ function App() {
 
 
   /** Login user and updates token and username */
+  //TODO: cleanup formData
   async function login(formData) {
     const userDetails = {
       username: formData["Username"],
@@ -57,6 +75,7 @@ function App() {
   }
 
   /** Signs up new user and updates token and username */
+  //TODO: cleanup formData
   async function signup(formData) {
     const userDetails = {
       username: formData["Username"],
@@ -73,9 +92,12 @@ function App() {
   function logout() {
     setToken(t => "");
     setUser(u => null);
+    localStorage.setItem('jobly-token', "");
   }
 
   //TODO: editF
+  // update user based on formData.
+  //    will call JoblyAPI function that patches user
 
 
   return (

@@ -22,7 +22,9 @@ const DEFAULT_PROFILE_DATA = {
   "Last name": "",
   "Email": ""
 }
-
+//TODO: pass in user context, initialFormData from context
+//    pass in values from these initial values, update and submit as normal
+//    will need an update function but form won't know what it is
 function ProfileForm({ initialFormData=DEFAULT_PROFILE_DATA, handleSave }) {
   // console.log("ProfileForm");
   const [formData, setFormData] = useState(initialFormData);

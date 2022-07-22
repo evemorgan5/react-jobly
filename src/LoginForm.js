@@ -20,7 +20,7 @@ const DEFAULT_LOGIN_DATA = {
   "Username": "",
   "Password": ""
 }
-
+//TODO: hardcode inputs
 function LoginForm({ initialFormData=DEFAULT_LOGIN_DATA, handleSave }) {
   // console.log("LoginForm");
   const [formData, setFormData] = useState(initialFormData);

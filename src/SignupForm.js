@@ -21,7 +21,7 @@ const DEFAULT_SIGNUP_DATA = {
   "Last name": "",
   "Email": ""
 }
-
+//TODO: hardcode inputs
 function SignupForm({ initialFormData=DEFAULT_SIGNUP_DATA, handleSave }) {
   // console.log("SignupForm");
   const [formData, setFormData] = useState(initialFormData);

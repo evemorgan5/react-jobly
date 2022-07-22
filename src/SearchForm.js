@@ -12,7 +12,7 @@ import React, { useState } from "react";
  *
  *  { GetCompanyCardList, GetJobCardList } -> SearchForm
  */
-
+//TODO: hardcode inputs
 function SearchForm({ initialFormData, handleSave }) {
   // console.log("SearchForm");
   const [formData, setFormData] = useState(initialFormData);
