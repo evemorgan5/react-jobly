@@ -1,10 +1,11 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Navigate } from "react-router-dom";
 import Navigation from "./Navigation";
 import RoutesList from "./RoutesList";
 import tokenContext from './tokenContext';
 import JoblyApi from './api';
+import jwt_decode from "jwt-decode";
 
 
 /** Site application.
@@ -17,8 +18,11 @@ function App() {
   const [user, setUser] = useState({});
 
   useEffect(function fetchUserInfoFromAPI() {
-    getUser(user.username, token);
-  }, [user.username, token]);
+    if (token) {
+      const { username } = jwt_decode(token);
+      getUser(username, token);
+    }
+  }, [token]);
 
   /** Get current user details */
   async function getUser(username, token) {
@@ -27,7 +31,7 @@ function App() {
     setUser(u => userData);
   }
 
-  console.log("user",user);
+  // console.log("user",user);
 
   /** Login user and updates token and username */
   async function login(formData) {
@@ -66,10 +70,12 @@ function App() {
     // JoblyApi.token = newToken;
   }
 
-  /** Log out user and updates token and user*/
-  async function logout() {
+  /** Log out user and updates token and user */
+  function logout() {
+    console.log("LOGOUT");
     setToken(t => "");
     setUser(u => {});
+    return <Navigate to="/"/>;
   }
 
 
@@ -87,7 +93,7 @@ function App() {
       <header className="App-header">
         <tokenContext.Provider value={{ token }}>
           <BrowserRouter>
-            <Navigation />
+            <Navigation logout={logout}/>
             <RoutesList functions={{ login, signup }} />
           </BrowserRouter>
         </tokenContext.Provider>

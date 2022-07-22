@@ -11,7 +11,7 @@ import tokenContext from "./tokenContext";
 //TODO: check context to decide which nav links to show
 
 
-function Navigation() {
+function Navigation({logout}) {
 
   const { token } = useContext(tokenContext);
   console.log("TOKEN NAV", token);
@@ -34,7 +34,7 @@ function Navigation() {
             Profile
           </NavLink>
           <NavLink to="/">
-            Log out USER.name
+            <span onClick={logout}>Log out USER.name</span>
           </NavLink>
         </span>
       : <span>
