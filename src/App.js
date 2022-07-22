@@ -7,6 +7,7 @@ import userContext from './userContext';
 import JoblyApi from './api';
 import jwt_decode from "jwt-decode";
 
+const LOCAL_STORAGE_TOKEN_KEY = 'jobly-token';
 
 /** Site application.
  *
@@ -20,7 +21,6 @@ import jwt_decode from "jwt-decode";
  *  App -> { Navigation, RoutesList }
  *
  **/
-const LOCAL_STORAGE_TOKEN_KEY = 'jobly-token';
 
 function App() {
   const [token, setToken] = useState(
@@ -29,12 +29,12 @@ function App() {
 
   console.log("TOKEN ON LOAD", token);
   console.log("USER ON LOAD", user);
+
   /** Gets user from API when token changes */
   useEffect(function fetchUserInfoFromAPI() {
 
-    setOrRetreiveTokenFromLS(token);
-
     if (token) {
+      putTokenInLS(token);
       const { username } = jwt_decode(token);
       //TODO: try catch - for bad token and catch error
       getUser(username, token);
@@ -43,17 +43,11 @@ function App() {
 
 
   /** Add token in localStorage, or retreive if it already exists in LS */
-  function setOrRetreiveTokenFromLS(token) {
+  function putTokenInLS(token) {
     const joblyToken = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
-    // console.log("token", token);
-    // console.log("jobly before if check", joblyToken)
 
-    if (!joblyToken) {
+    if (!joblyToken && token) {
       localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
-      // console.log("jobly in if check", joblyToken);
-    }
-    else {
-      setToken(t => joblyToken);
     }
   }
 
@@ -103,6 +97,7 @@ function App() {
   // update user based on formData.
   //    will call JoblyAPI function that patches user
 
+  if (token && !user) return <h1>Loading...</h1>
 
   return (
     <div className="App">

@@ -46,6 +46,7 @@ function ProfileForm({ initialFormData=DEFAULT_PROFILE_DATA, handleSave }) {
   }
   //TODO: check if password input is type password or not
   //    may have to hardcode the fields
+
   return (
     <form className="ProfileForm" onSubmit={handleSubmit}>
       {Object.keys(formData).map((p, idx) =>
