@@ -37,6 +37,7 @@ function SignupForm({ initialFormData=DEFAULT_SIGNUP_DATA, handleSave }) {
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     evt.preventDefault();
+    //TODO: try catch error message
     handleSave(formData);
     setFormData(initialFormData);
   }

@@ -6,10 +6,13 @@ import userContext from "./userContext";
  /**  Navigation
  *
  *  Props:
- * - None
+ * - //TODO: None
  *
  *  State:
  * - None
+ *
+ *  //TODO:Context:
+ * - user {}
  *
  *  App -> Navigation
  */

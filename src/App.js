@@ -27,8 +27,11 @@ function App() {
 
   /** Gets user from API when token changes */
   useEffect(function fetchUserInfoFromAPI() {
+    //TODO: check for token in local storage
+
     if (token) {
       const { username } = jwt_decode(token);
+      //TODO: try catch - for bad token and catch error
       getUser(username, token);
     }
   }, [token]);
@@ -50,13 +53,7 @@ function App() {
     };
 
     const newToken = await JoblyApi.onLoginGetTokenFromAPI(userDetails);
-
     setToken(t => newToken);
-    setUser(u => {
-      return {
-        username: userDetails.username
-      };
-    });
   }
 
   /** Signs up new user and updates token and username */
@@ -76,7 +73,6 @@ function App() {
   function logout() {
     setToken(t => "");
     setUser(u => null);
-    return <Navigate to="/"/>;
   }
 
   //TODO: editF
