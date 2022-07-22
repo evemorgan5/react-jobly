@@ -1,20 +1,22 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
-import tokenContext from "./tokenContext";
-/**
- *  Navigation
+import userContext from "./userContext";
+
+ /**  Navigation
+ *
+ *  Props:
+ * - None
+ *
+ *  State:
+ * - None
  *
  *  App -> Navigation
  */
 
-//TODO: check context to decide which nav links to show
+function Navigation({ logout }) {
 
-
-function Navigation({logout}) {
-
-  const { token } = useContext(tokenContext);
-  console.log("TOKEN NAV", token);
+  const { user } = useContext(userContext);
 
   return (
     <nav className="Navigation">
@@ -22,8 +24,9 @@ function Navigation({logout}) {
         Jobly
       </NavLink>
 
-      {token
-      ? <span>
+      {user
+        ?
+        <span>
           <NavLink to="/companies">
             Companies
           </NavLink>
@@ -34,10 +37,11 @@ function Navigation({logout}) {
             Profile
           </NavLink>
           <NavLink to="/">
-            <span onClick={logout}>Log out USER.name</span>
+            <span onClick={logout}>Log out {user.username}</span>
           </NavLink>
         </span>
-      : <span>
+        :
+        <span>
           <NavLink to="/login">
             Login
           </NavLink>
@@ -47,8 +51,6 @@ function Navigation({logout}) {
         </span>
       }
 
-
-        {/** TODO: WHAT SPAN TO PUT THESE IN */}
     </nav>
   );
 }

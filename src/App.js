@@ -3,20 +3,29 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Navigate } from "react-router-dom";
 import Navigation from "./Navigation";
 import RoutesList from "./RoutesList";
-import tokenContext from './tokenContext';
+import userContext from './userContext';
 import JoblyApi from './api';
 import jwt_decode from "jwt-decode";
 
 
 /** Site application.
  *
+ *  State:
+ *  - user {username, firstName, lastName, email, isAdmin}
+ *  - token as string for login auth
+ *
+ *  Props:
+ *  - None
+ *
  *  App -> { Navigation, RoutesList }
+ *
  **/
 
 function App() {
   const [token, setToken] = useState("");
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
+  /** Gets user from API when token changes */
   useEffect(function fetchUserInfoFromAPI() {
     if (token) {
       const { username } = jwt_decode(token);
@@ -30,8 +39,8 @@ function App() {
     const userData = await JoblyApi.getUserFromAPI(username);
     setUser(u => userData);
   }
+  //console.log("user",user);
 
-  // console.log("user",user);
 
   /** Login user and updates token and username */
   async function login(formData) {
@@ -50,9 +59,8 @@ function App() {
     });
   }
 
-  /** Signs up user and updates token and username */
+  /** Signs up new user and updates token and username */
   async function signup(formData) {
-    console.log(formData);
     const userDetails = {
       username: formData["Username"],
       password: formData["Password"],
@@ -62,41 +70,27 @@ function App() {
     };
     const newToken = await JoblyApi.onRegGetTokenFromAPI(userDetails);
     setToken(t => newToken);
-    setUser(u => {
-      return {
-        username: userDetails.username
-      };
-    });
-    // JoblyApi.token = newToken;
   }
 
-  /** Log out user and updates token and user */
+  /** Log out user and resets token and user to initial values */
   function logout() {
-    console.log("LOGOUT");
     setToken(t => "");
-    setUser(u => {});
+    setUser(u => null);
     return <Navigate to="/"/>;
   }
 
-
-  console.log("APP TOKEN", token);
   //TODO: editF
-
-
-
-
-  //TODO:redirect to /companies after login or signup
 
 
   return (
     <div className="App">
       <header className="App-header">
-        <tokenContext.Provider value={{ token }}>
+        <userContext.Provider value={{ user }}>
           <BrowserRouter>
             <Navigation logout={logout}/>
             <RoutesList functions={{ login, signup }} />
           </BrowserRouter>
-        </tokenContext.Provider>
+        </userContext.Provider>
       </header>
     </div>
   );
