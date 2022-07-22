@@ -20,11 +20,15 @@ import jwt_decode from "jwt-decode";
  *  App -> { Navigation, RoutesList }
  *
  **/
+const LOCAL_STORAGE_TOKEN_KEY = 'jobly-token';
 
 function App() {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(
+    localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY));
   const [user, setUser] = useState(null);
 
+  console.log("TOKEN ON LOAD", token);
+  console.log("USER ON LOAD", user);
   /** Gets user from API when token changes */
   useEffect(function fetchUserInfoFromAPI() {
 
@@ -40,13 +44,13 @@ function App() {
 
   /** Add token in localStorage, or retreive if it already exists in LS */
   function setOrRetreiveTokenFromLS(token) {
-    const joblyToken = localStorage.getItem('jobly-token');
-    console.log("token", token);
-    console.log("jobly before if check", joblyToken)
+    const joblyToken = localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
+    // console.log("token", token);
+    // console.log("jobly before if check", joblyToken)
 
     if (!joblyToken) {
-      localStorage.setItem('jobly-token', token);
-      console.log("jobly in if check", joblyToken);
+      localStorage.setItem(LOCAL_STORAGE_TOKEN_KEY, token);
+      // console.log("jobly in if check", joblyToken);
     }
     else {
       setToken(t => joblyToken);
