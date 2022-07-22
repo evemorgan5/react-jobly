@@ -6,12 +6,13 @@ import userContext from "./userContext";
  *  Homepage
  *
  *  Props:
- * - None
+ *    - None
  *
  *  State:
- * - None
+ *    - None
  *
- * //TODO: context
+ *  Context:
+ *    - user { username, firstName, lastName, email, isAdmin }
  *
  *  RoutesList -> Homepage
  */

@@ -6,13 +6,13 @@ import userContext from "./userContext";
  /**  Navigation
  *
  *  Props:
- * - //TODO: None
+ *    - logout: fn passed from App
  *
  *  State:
- * - None
+ *    - None
  *
- *  //TODO:Context:
- * - user {}
+ *  Context:
+ *    - user { username, firstName, lastName, email, isAdmin }
  *
  *  App -> Navigation
  */

@@ -74,6 +74,7 @@ class JoblyApi {
   /** On login - get token by making a POST request to /auth/token:
    * { username, password } => token
    */
+
   static async onLoginGetTokenFromAPI(userLoginDetails) {
     let res = await this.request(
       'auth/token',
@@ -86,6 +87,7 @@ class JoblyApi {
   /** On registering - get token by making a POST request to /auth/register:
   * { username, password, firstName, lastName, email } => token
   */
+
   static async onRegGetTokenFromAPI(userRegisterDetails) {
     let res = await this.request(
       'auth/register',

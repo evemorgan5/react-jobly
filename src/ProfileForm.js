@@ -4,7 +4,7 @@ import React, { useState } from "react";
  *  ProfileForm
  *
  *  Props:
- *    - initialFormData
+ *    - initialFormData: { username, firstName, lastName, email }
  *    - handleSave: function to call in parent.
  *
  *  State:
@@ -12,6 +12,7 @@ import React, { useState } from "react";
  *
  *  Routes -> ProfileForm
  */
+
 //TODO: since we are editing, we need to autopopulate with what's already
 //  saved to user
 

@@ -4,7 +4,7 @@ import React, { useState } from "react";
  *  SignupForm
  *
  *  Props:
- *    - initialFormData
+ *    - initialFormData: { username, password, firstName, lastName, email }
  *    - handleSave: function to call in parent.
  *
  *  State:
@@ -12,6 +12,7 @@ import React, { useState } from "react";
  *
  *  Routes -> SignupForm
  */
+
 //FIXME: ask about key names
 const DEFAULT_SIGNUP_DATA = {
   "Username": "",

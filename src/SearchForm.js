@@ -4,7 +4,7 @@ import React, { useState } from "react";
  *  SearchForm
  *
  *  Props:
- *    - initialFormData
+ *    - initialFormData: { name or title }
  *    - handleSave: function to call in parent.
  *
  *  State:

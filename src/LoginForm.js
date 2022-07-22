@@ -4,13 +4,14 @@ import React, { useState } from "react";
  *  LoginForm
  *
  *  Props:
- *    - initialFormData
+ *    - initialFormData: { username, password }
  *    - handleSave: function to call in parent.
  *
  *  State:
  *    - formData
  *
- * //TODO: context
+ *  Context:
+ *    - user { username, firstName, lastName, email, isAdmin }
  *
  *  Routes -> LoginForm
  */

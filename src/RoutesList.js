@@ -13,17 +13,16 @@ import ProfileForm from "./ProfileForm";
 /**
  *  RoutesList
  *
- * Props:
- * - functions { login, signup}
+ *  Props:
+ *    - functions: { login, signup } from App
  *
- * State:
- * - None
+ *  State:
+ *    - None
  *
- * //TODO: context
- *
+ *  Context:
+ *    - user { username, firstName, lastName, email, isAdmin }
  *
  *  App -> RoutesList -> Routes
- *
  */
 
 function RoutesList({ functions }) {
