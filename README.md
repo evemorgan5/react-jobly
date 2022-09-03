@@ -1,3 +1,8 @@
+link to React hierarchy component diagram
+
+https://miro.com/app/board/uXjVOkrIfII=/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
